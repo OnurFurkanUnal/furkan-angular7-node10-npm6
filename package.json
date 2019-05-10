@@ -1,0 +1,37 @@
+{
+  "name": "furkan-angular7-node12-npm6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "express": "^4.16.4",
+    "sequelize": "^5.8.5"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "enzyme": "^3.9.0",
+    "jshint": "^2.10.2"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "standart"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OnurFurkanUnal/furkan-angular7-node12-npm6.git"
+  },
+  "keywords": [
+    "forum",
+    "advertisement"
+  ],
+  "engines": {
+    "node": ">=12.1.0"
+  },
+  "author": "Onur Furkan Unal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OnurFurkanUnal/furkan-angular7-node12-npm6/issues"
+  },
+  "homepage": "https://github.com/OnurFurkanUnal/furkan-angular7-node12-npm6#readme"
+}
