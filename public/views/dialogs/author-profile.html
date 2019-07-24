@@ -1,0 +1,25 @@
+
+<md-dialog aria-label="Author Profile" flex="50">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>{{$root.selectedAuthor.name}}'s profile</h2>
+    </div>
+  </md-toolbar>
+  <md-dialog-content class="md-padding">
+    <md-list>
+      <md-list-item>
+        <div class="md-list-item-text">
+          <h3>Biography</h3>
+          <p>{{$root.selectedAuthor.bio}}</p>
+        </div>
+      </md-list-item>
+      <md-divider></md-divider>
+      <md-list-item>
+        <div class="md-list-item-text">
+          <h3>Books on Bookmark</h3>
+          <p>{{$root.selectedAuthor.Books.length}}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-dialog-content>
+</md-dialog>

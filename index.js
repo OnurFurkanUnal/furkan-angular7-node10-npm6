@@ -1,11 +1,23 @@
-const http = require('http');
-const hostname = '127.0.0.1';
-const port = 3000;
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
+var express = require('express'),
+  routes = require('./server/routes')
+  bodyParser = require('body-parser');
+
+var app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(process.cwd() + '/public'));
+
+//App routes
+app.use(routes(express.Router()));
+
+app.get('/*', function (req, res) {
+  res.sendFile('index.html', {
+    root: './public'
+  });
 });
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+
+app.set('port', process.env.PORT || 3000);//bu 3000'ni ben yapdım 8000 di bu
+app.listen(app.get('port'), function () {
+  console.log("Magic happens on port", app.get('port'));
 });
