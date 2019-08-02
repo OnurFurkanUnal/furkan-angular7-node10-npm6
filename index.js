@@ -17,7 +17,7 @@ app.get('/*', function (req, res) {
   });
 });
 
-app.set('port', process.env.PORT || 3000);//bu 3000'ni ben yapdım 8000 di bu
+app.set('port', process.env.PORT || 3000);//I changed port number from 8000 to 3000.
 app.listen(app.get('port'), function () {
   console.log("Magic happens on port", app.get('port'));
 });

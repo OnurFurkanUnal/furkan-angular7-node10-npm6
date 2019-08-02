@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     publication_date: DataTypes.DATE,
     description: DataTypes.TEXT,
     author_id: DataTypes.INTEGER//,
-//    created_at:DataTypes.DATE, sonradan ekledim bu 2 yi
+//    created_at:DataTypes.DATE, these 2 lines added lately by me
 //    updated_at:DataTypes.DATE
   }, {
     underscored: true,

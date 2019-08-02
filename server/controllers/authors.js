@@ -5,7 +5,7 @@ module.exports= {
   //Get a list of all authors using model.findAll()
   index(req, res) {
     Author.findAll({
-        //attributes eklendi oda sequelize anlamıor diye.
+        //these attributes was added because of sequlize is not understanding.
        // attributes : ['id', 'name', 'bio', 'created_at', 'updated_at'],
       include: Book
     })
