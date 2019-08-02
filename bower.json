@@ -1,0 +1,25 @@
+{
+  "name": "furkan-angular7-node12-npm6",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Onur Furkan Unal"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "forum",
+    "advertisement"
+  ],
+  "homepage": "https://github.com/OnurFurkanUnal/furkan-angular7-node12-npm6",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material-icons": "^0.7.1",
+    "angular-material": "^1.1.19"
+  }
+}
