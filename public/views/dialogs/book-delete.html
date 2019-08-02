@@ -1,0 +1,33 @@
+
+<md-dialog aria-label="Delete Book" flex="50">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Delete Book</h2>
+    </div>
+  </md-toolbar>
+  <form name="bookForm" ng-submit="deleteBook(book)" novalidate="novalidate">
+    <md-dialog-content class="md-padding">
+      <div layout="row">
+        <md-input-container flex="flex">
+          <label>Name</label>
+          <input ng-model="book.name" type="text" name="book.name" required="required"/>
+        </md-input-container>
+        <md-input-container flex="flex">
+          <label>Publication Date</label>
+          <md-datepicker ng-model="book.publication_date" type="text" name="book.publication_date" required="required"></md-datepicker>
+        </md-input-container>
+      </div>
+      <md-input-container class="md-block">
+        <label>ISBN number</label>
+        <input ng-model="book.isbn" type="text" name="book.isbn" required="required"/>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>Description</label>
+        <textarea ng-model="book.description" rows="5" name="book.description" required="required"></textarea>
+      </md-input-container>
+    </md-dialog-content>
+    <md-dialog-actions>
+      <md-button aria-label="Save Book" type="submit" ng-disabled="bookForm.$invalid">Add Book</md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

@@ -1,6 +1,0 @@
-{
-  "directory": "public/lib",
-  "scripts": {
-    "postinstall":"gulp scripts:inject"
-  }
-}
