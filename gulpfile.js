@@ -99,21 +99,22 @@ gulp.task('test:client', function (done) {
   }, done).start();
 });
 
-//Run the server tests and generate coverage reports
-// gulp.task('test:server', gulp.series('test:server:coverage'), function (done) {
-//   gulp.src(paths.serverTests)
-//     .pipe(mocha())
-//     .pipe(istanbul.writeReports({
-//       dir: './coverage/server',
-//       reporters: ['lcov', 'json', 'text', 'text-summary']
-//     }));
-// });
+gulp.task('test:server:coverage', function () {
+ return gulp.src(paths.serverScripts)
+    .pipe(istanbul())
+    .pipe(istanbul.hookRequire());
+});
 
-// gulp.task('test:server:coverage', function () {
-//   gulp.src(paths.serverScripts)
-//     .pipe(istanbul())
-//     .pipe(istanbul.hookRequire());
-// });
+//Run the server tests and generate coverage reports
+gulp.task('test:server', gulp.series('test:server:coverage'), function (done) {
+  gulp.src(paths.serverTests)
+    .pipe(mocha())
+    .pipe(istanbul.writeReports({
+      dir: './coverage/server',
+      reporters: ['lcov', 'json', 'text', 'text-summary']
+    }));
+});
+
 
 //Watch for changes in files.
 gulp.task('watch', function () {
