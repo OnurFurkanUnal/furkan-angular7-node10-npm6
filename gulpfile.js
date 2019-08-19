@@ -99,21 +99,23 @@ gulp.task('test:client', function (done) {
   }, done).start();
 });
 
-gulp.task('test:server:coverage', function () {
- return gulp.src(paths.serverScripts)
-    .pipe(istanbul())
-    .pipe(istanbul.hookRequire());
-});
-
 //Run the server tests and generate coverage reports
-gulp.task('test:server', gulp.series('test:server:coverage'), function (done) {
+gulp.task('test:server', function (done) {
   gulp.src(paths.serverTests)
     .pipe(mocha())
     .pipe(istanbul.writeReports({
       dir: './coverage/server',
       reporters: ['lcov', 'json', 'text', 'text-summary']
-    }));
+    })); done();
 });
+
+gulp.task('test:server:coverage',gulp.series('test:server') ,function (done) {
+  gulp.src(paths.serverScripts)
+    .pipe(istanbul())
+	.pipe(istanbul.hookRequire());
+	done();
+});
+
 
 
 //Watch for changes in files.

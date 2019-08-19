@@ -39,18 +39,17 @@ describe('Server controller tests', function () {
       });
     });
 
-    it('Should fetch all authors', function (done) {
+    it('Should fetch all authors', function () {
       req = httpMocks.createRequest();
       ctrl.index(req, res);
       res.on('end', function () {
         var response = JSON.parse(res._getData());
         expect(res.statusCode).to.equal(200);
         expect(response.length).to.be.above(0);
-        done();
       });
     });
 
-    it('Should fetch author by ID', function (done) {
+    it('Should fetch author by ID', function () {
       req = httpMocks.createRequest({
         params: { id: 1 }
       });
@@ -59,11 +58,10 @@ describe('Server controller tests', function () {
         var response = JSON.parse(res._getData());
         expect(res.statusCode).to.equal(200);
         expect(response.name).to.equal('Test author 1');
-        done()
       });
     });
 
-    it('Should update an author', function (done) {
+    it('Should update an author', function () {
       req = httpMocks.createRequest({
         params: { id: 1 },
         body: { name: 'Updated name', bio: 'Updated Bio' }
@@ -77,11 +75,10 @@ describe('Server controller tests', function () {
             expect(updatedAuthor.name).to.equal('Updated name');
             expect(updatedAuthor.bio).to.equal('Updated Bio');
           });
-          done();
       });
     });
 
-    it('Should delete an author by ID', function (done) {
+    it('Should delete an author by ID', function () {
       req = httpMocks.createRequest({
         params: { id: 1 }
       });
@@ -93,7 +90,6 @@ describe('Server controller tests', function () {
           .then(function (response) {
             expect(response).to.equal(null);
           });
-        done();
       });
     });
   });

@@ -19,7 +19,7 @@ module.exports= {
 
   //Get an author by the unique ID using model.findById()
   show(req, res) {
-    Author.findById(req.params.id, {
+    Author.findByPk(req.params.id, {
       include: Book
     })
     .then(function (author) {

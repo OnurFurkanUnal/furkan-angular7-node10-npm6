@@ -19,6 +19,13 @@
 			"port": 9266,
 			"webRoot": "${workspaceFolder}",
 			"url": "http://127.0.0.1:55868/p/furkan-angular7-node12-npm6/public/index.html?_cmAuth\u003dyxwonghlby"
+		},
+		{
+			"name": "Launch author-test.js",
+			"type": "chrome",
+			"request": "launch",
+			"port": 9278,
+			"file": "${workspaceFolder}/test/server/author-test.js"
 		}
 	]
 }
