@@ -37,7 +37,7 @@ var paths = {
 
 //Compile Jade files to html and save them into the public directory.
 gulp.task('jade:compile', function () {
-  gulp.src(paths.jade)
+ return gulp.src(paths.jade)
     .pipe(jade({
       pretty: true
     }))
@@ -46,7 +46,7 @@ gulp.task('jade:compile', function () {
 
 //Concatinate js into index.js, minify and save in public/js.
 gulp.task('js:minify', function () {
-  gulp.src(paths.compileScripts.js)
+ return  gulp.src(paths.compileScripts.js)
     .pipe(concat('index.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./public/js/'));
@@ -54,7 +54,7 @@ gulp.task('js:minify', function () {
 
 //Concatinate custom css into styles.css, minify and save in public/css.
 gulp.task('css:minify', function () {
-  gulp.src(paths.compileScripts.css)
+ return gulp.src(paths.compileScripts.css)
     .pipe(less({
       paths: [path.join(__dirname, 'styles')]
     }))
@@ -66,7 +66,7 @@ gulp.task('css:minify', function () {
 
 //Copy the images folder from app to public recursively
 gulp.task('copy:images', function () {
-  gulp.src(paths.images)
+ return gulp.src(paths.images)
     .pipe(gulp.dest('./public/images'));
 });
 
@@ -77,7 +77,7 @@ gulp.task('bower:run', function () {
 
 //Inject bower scripts and custom scripts into /public/index.html.
 gulp.task('scripts:inject', function () {
-     gulp.src(paths.index)
+  return   gulp.src(paths.index)
     .pipe(wiredep())
     .pipe(gulpinject(gulp.src(paths.scripts.js), { relative: true }))
     .pipe(gulpinject(gulp.src(paths.scripts.css), { relative: true }))
@@ -120,7 +120,7 @@ gulp.task('test:server:coverage',gulp.series('test:server') ,function (done) {
 
 //Watch for changes in files.
 gulp.task('watch', function () {
-  gulp.watch(paths.jade, gulp.series(['jade:compile']));
+  gulp.watch(paths.jade, gulp.series(['jade:compile','scripts:inject']));
   gulp.watch(paths.compileScripts.js, gulp.series(['js:minify']));
   gulp.watch(paths.compileScripts.css, gulp.series(['css:minify']));
   gulp.watch(paths.index, gulp.series(['scripts:inject']));
@@ -128,7 +128,7 @@ gulp.task('watch', function () {
 });
 
 //Default task.
-gulp.task('default', gulp.parallel('bower:run', 'jade:compile', 'js:minify', 'css:minify', 'scripts:inject', 'copy:images'));
+gulp.task('default', gulp.series('bower:run', 'jade:compile', 'js:minify', 'css:minify', 'scripts:inject', 'copy:images'));
 
 //Dev environment task.
-gulp.task('dev', gulp.parallel('nodemon:run', 'bower:run', 'jade:compile', 'js:minify', 'css:minify', 'scripts:inject', 'watch', 'copy:images'));
+gulp.task('dev', gulp.parallel('nodemon:run',  'watch'));
