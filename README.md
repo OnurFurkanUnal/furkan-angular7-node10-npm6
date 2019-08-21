@@ -18,7 +18,6 @@ Angular-CLI - 7.3.8+
 
 Go to project directory
 * $ cd furkan-angular7-node10-npm6
-sorry for long name :)
 
 You need install dependencies to run
 * $ npm install
