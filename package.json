@@ -54,8 +54,8 @@
   },
   "repository": "git+https://github.com/OnurFurkanUnal/furkan-angular7-node10-npm6.git",
   "keywords": [
-    "forum",
-    "advertisement"
+    "Tutorial",
+    "Example And lesson for new developers"
   ],
   "engines": {
     "node": ">=10.15.3"
