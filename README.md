@@ -8,6 +8,7 @@ Tutorial for Nodejs10-Npm6-Sequelize5-Angular7
 - PostgreSQL 11
 - Sequelize 5 with sequelize cli
 - Bower 1.8.8 (package menager for frontend libraries)
+- Gulp 4 (task/build runner and controller for workflow)
 
 ### Requirements ###
 
