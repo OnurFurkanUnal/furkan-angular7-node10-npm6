@@ -47,8 +47,8 @@
     "wiredep": "^4.0.0"
   },
   "scripts": {
-    "test": "NODE_ENV=test node_modules/.bin/gulp test:client && NODE_ENV=test node_modules/.bin/gulp test:server",
-    "prestart": "node_modules/.bin/gulp && node_modules/.bin/sequelize db:migrate",
+    "testserver": "NODE_ENV=test gulp test:server --timeout 10000 && NODE_ENV=test gulp test:client",
+    "prestart": "gulp && sequelize db:migrate",
     "start": "node index.js",
     "stop": "taskkill /im node.exe /F"
   },
