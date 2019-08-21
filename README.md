@@ -24,7 +24,7 @@ You need install dependencies to run
 
 You must create bookmark and bookmark_test database before prestart
 
-To upload all frontend files inside public directory and migrate database tables to postgresSQL
+To upload all frontend files inside public directory and migrate database tables to postgresSQL (Note if you are getting NODE_ENV error you must do npm install -g win-node-env)
 * $ npm run prestart 
 
 To start App
