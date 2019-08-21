@@ -1,5 +1,5 @@
 {
-  "name": "furkan-angular7-node12-npm6",
+  "name": "furkan-angular7-node10-npm6",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -47,23 +47,23 @@
     "wiredep": "^4.0.0"
   },
   "scripts": {
-    "testserver": "NODE_ENV=test gulp test:server --timeout 10000 && NODE_ENV=test gulp test:client",
+    "test": "NODE_ENV=test gulp test:server --timeout 10000 && NODE_ENV=test gulp test:client",
     "prestart": "gulp && sequelize db:migrate",
     "start": "node index.js",
     "stop": "taskkill /im node.exe /F"
   },
-  "repository": "git+https://github.com/OnurFurkanUnal/furkan-angular7-node12-npm6.git",
+  "repository": "git+https://github.com/OnurFurkanUnal/furkan-angular7-node10-npm6.git",
   "keywords": [
     "forum",
     "advertisement"
   ],
   "engines": {
-    "node": ">=12.1.0"
+    "node": ">=10.15.3"
   },
   "author": "Onur Furkan Unal",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OnurFurkanUnal/furkan-angular7-node12-npm6/issues"
+    "url": "https://github.com/OnurFurkanUnal/furkan-angular7-node10-npm6/issues"
   },
-  "homepage": "https://github.com/OnurFurkanUnal/furkan-angular7-node12-npm6#readme"
+  "homepage": "https://github.com/OnurFurkanUnal/furkan-angular7-node10-npm6#readme"
 }
