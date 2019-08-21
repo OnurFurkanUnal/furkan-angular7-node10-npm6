@@ -25,19 +25,21 @@ You need install dependencies to run
 
 You must create bookmark and bookmark_test database before prestart
 
-To upload all frontend files inside public and migrate database tables to postgressql
+To upload all frontend files inside public directory and migrate database tables to postgresSQL
 * $ npm run prestart 
 
 To start App
 * $ gulp dev 
 
 Front End URL : http://localhost:3000/
+
 Api Authors URL : http://localhost:3000/authors
+
 Api Books URL : http://localhost:3000/books
 
 ### Test App ###
 
-Ýf you want to test app after set up.
+If you want to test app after set up.
 * $ npm run test
 
 
