@@ -1,3 +1,4 @@
+// Import necessary modules and files
 var expect = require('chai').expect;
 var httpMocks = require('node-mocks-http');
 
@@ -6,7 +7,9 @@ var ctrl = require('../../server/controllers/authors');
 
 var res;
 
+// Begin testing
 describe('Server controller tests', function () {
+  // Before each test, clear the database and create two test authors
   before(function () {
     return models.sequelize
     .sync({ force: true })
@@ -18,13 +21,16 @@ describe('Server controller tests', function () {
     });
   });
 
+  // Before each test, create a new mock response object
   beforeEach(function () {
     res = httpMocks.createResponse({
       eventEmitter: require('events').EventEmitter
     });
   });
 
+  // Test suite for author functionality
   describe('Author tests', function () {
+    // Test for creating a new author
     it('Should create a new author', function (done) {
       var req = httpMocks.createRequest({
         body: { name: 'Test Author', bio: 'Test Bio' }
@@ -39,6 +45,7 @@ describe('Server controller tests', function () {
       });
     });
 
+    // Test for fetching all authors
     it('Should fetch all authors', function () {
       req = httpMocks.createRequest();
       ctrl.index(req, res);
@@ -49,6 +56,7 @@ describe('Server controller tests', function () {
       });
     });
 
+    // Test for fetching an author by ID
     it('Should fetch author by ID', function () {
       req = httpMocks.createRequest({
         params: { id: 1 }
@@ -61,6 +69,7 @@ describe('Server controller tests', function () {
       });
     });
 
+    // Test for updating an author
     it('Should update an author', function () {
       req = httpMocks.createRequest({
         params: { id: 1 },
@@ -69,6 +78,7 @@ describe('Server controller tests', function () {
 
       ctrl.update(req, res);
       res.on('end', function () {
+        // Fetching the updated author from the database and checking if the updated author has the expected name and bio
         models.Author.findById(1)
           .then(function (result) {
             var updatedAuthor = result.get({ plain: true });
@@ -78,6 +88,7 @@ describe('Server controller tests', function () {
       });
     });
 
+    // Test for deleting an author by ID
     it('Should delete an author by ID', function () {
       req = httpMocks.createRequest({
         params: { id: 1 }
@@ -85,7 +96,7 @@ describe('Server controller tests', function () {
 
       ctrl.delete(req, res);
       res.on('end', function () {
-        //Ensure that the author does not exist.
+        // Ensure that the author does not exist in the database
         models.Author.findById(1)
           .then(function (response) {
             expect(response).to.equal(null);
