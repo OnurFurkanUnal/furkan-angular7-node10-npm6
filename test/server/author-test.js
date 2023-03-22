@@ -21,7 +21,7 @@ describe('Server controller tests', function () {
     });
   });
 
-  // Before each test, create a new mock response object
+  // Before each test, create a new mock request and response object
   beforeEach(function () {
     res = httpMocks.createResponse({
       eventEmitter: require('events').EventEmitter
